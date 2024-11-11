@@ -2,36 +2,43 @@
 using namespace std;
 
 int main() {
-	string a,b;
-	int c;
-	getline(cin,a);
-	getline(cin,b);
-	int count=0;
-	for(int i=0;i<a.size();i++){
-	    for(int j=0;j<b.size();j++){
-	        if(a[i]==b[i]){
-	            a[i]='*';
-	            b[j]='*';
+	string name1,name2;
+	getline(cin,name1);
+	getline(cin,name2);
+	for(int i=0;i<name1.size();i++)
+	{
+	    for(int j=0;j<name2.size();j++)
+	    {
+	        if(name1[i]==name2[j])
+	        {
+	            name1[i] = '*';
+	            name2[j] = '*';
 	        }
 	    }
 	}
-	cout<<a<<endl;
-	cout<<b<<endl;
-	for(int i=0;i<a.size();i++){
-	    if(a[i]!='*'){
-	        count++;
-	    }
-	}
-	for(int i=0;i<b.size();i++){
-	    if(b[i]==' ')
+	int count = 0;
+	for(int i=0;i<name1.size();i++)
+	{
+	    if(name1[i]==' ')
 	    {
 	        continue;
 	    }
-	    if(b[i]!='*'){
+	    if(name1[i] != '*')
+	    {
 	        count++;
 	    }
 	}
-	cout<<count<<endl;
+	for(int j=0;j<name2.size();j++)
+	{
+	    if(name2[j]==' ')
+	    {
+	        continue;
+	    }
+	    if(name2[j] != '*')
+	    {
+	        count++;
+	    }
+	}
 	vector<char> flames = {'F','L','A','M','E','S'};
 	int i=0;
 	while(flames.size() > 1)
@@ -40,6 +47,4 @@ int main() {
 	    flames.erase(flames.begin()+i);
 	}
 	cout << flames[0] << " ";
-	
-	
 }
